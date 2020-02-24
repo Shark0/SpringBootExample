@@ -1,0 +1,37 @@
+server:
+  port: 7080
+swagger:
+  basePackage: com.shark.example
+spring:
+  application:
+    name: Example
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  kafka:
+    client-id: shark
+    bootstrap-servers:
+      - localhost:9092
+    template:
+      default-topic: input-topic
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: sygps
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+kafka:
+  topic:
+    input: input-topic
+    streams: streams-topic
+logging:
+  level:
+    com:
+      shark:
+        example: INFO
+    org:
+      springframework:
+        kafka: INFO
