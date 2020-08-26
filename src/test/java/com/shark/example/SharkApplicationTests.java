@@ -1,6 +1,6 @@
 package com.shark.example;
 
-import com.shark.example.service.MessageService;
+import com.shark.example.service.message.GetMessageService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +14,4 @@ public class SharkApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
-	@Autowired
-	private MessageService messageService;
-
-	@Test
-	public void testMessageService() {
-		messageService.printMessage();;
-	}
-
 }

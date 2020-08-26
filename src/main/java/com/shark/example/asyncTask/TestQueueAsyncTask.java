@@ -1,10 +1,10 @@
-package com.shark.example.asyncTask.test;
+package com.shark.example.asyncTask;
 
 import com.shark.example.asyncTask.BaseAsyncTask;
 import org.springframework.stereotype.Service;
 
 @Service
-public class QueueTestAsyncTask extends BaseAsyncTask<Integer, Boolean> {
+public class TestQueueAsyncTask extends BaseAsyncTask<Integer, Boolean> {
     @Override
     protected Boolean work(Integer integer) {
         try {

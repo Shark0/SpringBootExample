@@ -13,9 +13,9 @@ public class DoneTimeAspect {
 
     @Around("@annotation(doneTime)")
     public Object around(ProceedingJoinPoint joinPoint, DoneTime doneTime) throws Throwable {
-        System.out.println("方法开始时间是:" + new Date());
+        System.out.println("start time: " + new Date());
         Object proceed = joinPoint.proceed();
-        System.out.println("方法结束时间是:" + new Date());
+        System.out.println("end time: " + new Date());
         return proceed;
     }
 }
