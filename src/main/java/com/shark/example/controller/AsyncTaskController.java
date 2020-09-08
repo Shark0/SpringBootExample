@@ -5,17 +5,18 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RequestMapping(value = "/async")
-@Controller
+@RestController
 public class AsyncTaskController {
 
     private final StartAsyncTaskService startAsyncTaskService;
 
     @GetMapping("/start")
-    public String start(){
+    public boolean start(){
         startAsyncTaskService.start();
-        return "start";
+        return true;
     }
 }

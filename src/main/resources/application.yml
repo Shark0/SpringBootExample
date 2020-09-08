@@ -13,3 +13,4 @@ logging:
     com:
       shark:
         example: INFO
+  path: log
