@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-example
+spec:
+  selector:
+    app: springboot-example
+  type: NodePort
+  ports:
+    - name: web
+      port: 7080
+      targetPort: web
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-example
+spec:
+  selector:
+    matchLabels:
+      app: springboot-example
+  template:
+    metadata:
+      labels:
+        app: springboot-example
+    spec:
+      containers:
+        - image: shark0/springboot_example:<BUILD_TAG>
+          imagePullPolicy: IfNotPresent
+          name: springboot-example
+          env:
+            - name: branch
+              value: <BRANCH_NAME>

@@ -31,8 +31,16 @@ public class AopTest1Aspect {
         log.info("after returning");
     }
 
-    @AfterReturning("AopTest1Aspect()")
+    @AfterThrowing("AopTest1Aspect()")
     public void doAfterThrowing(JoinPoint joinPoint) {
         log.info("do after throwing");
     }
+
+//    @Around("AopTest1Aspect()")
+//    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+//        log.info("do around before");
+//        Object proceed = joinPoint.proceed();
+//        log.info("do around after");
+//        return proceed;
+//    }
 }
