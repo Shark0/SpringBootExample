@@ -7,9 +7,7 @@ spec:
     app: springboot-example
   type: NodePort
   ports:
-    - name: web
-      port: 7080
-      targetPort: web
+    - port: 7080
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -25,9 +23,6 @@ spec:
         app: springboot-example
     spec:
       containers:
-        - image: shark0/springboot_example:<BUILD_TAG>
+        - image: shark0/springboot_example:69769be
           imagePullPolicy: IfNotPresent
           name: springboot-example
-          env:
-            - name: branch
-              value: <BRANCH_NAME>
